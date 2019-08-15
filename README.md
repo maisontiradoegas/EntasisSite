@@ -14,6 +14,10 @@ The steps to compile and get started with development are covered in detail in d
 - npm install
 - gulp
 
+### Issues ###
+- If you run into issues with the NPM version, Install NVM a NPM version manager:
+https://github.com/nvm-sh/nvm
+
 ### Design Files ###
 
 We provide an "unofficial" Landkit Figma file for you to play with. Learn more about it at http://landkit.goodthemes.co/docs/figma.html and view/download it here: https://www.figma.com/file/17Z7uFvKhSLYMcUA0TMjBu/LandKit-Distributed?node-id=2016%3A15971.
