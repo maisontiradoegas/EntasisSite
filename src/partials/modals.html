@@ -170,7 +170,7 @@
         </button>
 
         <!-- Image -->
-        <img src="@@webRoot/assets/img/photos/photo-7.jpg" alt="..." class="card-img-top">
+        <img src="@@webRoot/assets/img/images/Dallas.jpg" alt="Entasis AWS Cloud Consulting" class="card-img-top">
 
         <!-- Shape -->
         <div class="position-relative">
@@ -184,43 +184,61 @@
 
           <!-- Heading -->
           <h2 class="mb-0 font-weight-bold text-center" id="modalSignupVerticalTitle">
-            Sign Up
+            Maximize Your Cloud ROI
           </h2>
 
           <!-- Text -->
           <p class="mb-6 text-center text-muted">
-            Simplify your workflow in minutes.
+            Take your first step towards becoming a cloud native.
           </p>
 
           <!-- Form -->
-          <form class="mb-6">
-
-            <!-- Email -->
-            <div class="form-group">
-              <label class="sr-only" for="modalSignupVerticalEmail">
-                Your email
-              </label>
-              <input type="email" class="form-control" id="modalSignupVerticalEmail" placeholder="Your email">
-            </div>
-
-            <!-- Password -->
-            <div class="form-group mb-5">
-              <label class="sr-only" for="modalSignupVerticalPassword">
-                Create a password
-              </label>
-              <input type="password" class="form-control" id="modalSignupVerticalPassword" placeholder="Create a password">
-            </div>
-
-            <!-- Submit -->
-            <button class="btn btn-block btn-primary" type="submit">
-              Sign up
-            </button>
-
-          </form>
-
+              <form class ="mb-6" id="customerForm" name="src" value="generic">
+                  <div id="alert_success" class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Sent!</strong> 
+                      <button type="button" class="close" onclick="$('#alert_success').hide()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div id="alert_failure" class="alert alert-warning alert-dismissible fade show" role="alert">
+                      Something went wrong! <br>Please email <strong>support@entasistech.com</strong></br>
+                      <button type="button" class="close" onclick="$('#alert_failure').hide()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                <div class="form-label-group">
+                  <input type="text" class="form-control form-control-flush" name="name" placeholder="Name" required>
+                  <label for="cardName">Name</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="email" class="form-control form-control-flush" name="email" id="cardEmail" placeholder="Email" required>
+                  <label for="cardEmail">Email</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="text" class="form-control form-control-flush" name="company" id="cardPassword" placeholder="Company" >
+                  <label for="cardPassword">Company</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="hidden" class="form-control form-control-flush" name="source" value="GeneralForm" placeholder="source">
+                  <!-- <label for="cardPassword">source</label> -->
+                </div>
+                <select name="business_need" id="applyRoles" class="custom-select form-control-flush text-muted">
+                    <option selected>Business Need</option>  
+                    <option>Design</option>
+                    <option>Engineering</option>
+                    <option>Product</option>
+                    <option>Testing</option>
+                    <option>Support</option>
+                  </select>
+                <div class="mt-6">
+                  <button class="btn btn-block btn-success lift" onclick="submitform('customerForm')" type="submit">
+                    Submit
+                  </button>
+                </div>
+              </form>
           <!-- Text -->
           <p class="mb-0 font-size-sm text-center text-muted">
-            Already have an account? <a href="@@webRoot/signin-illustration.html">Log in</a>.
+            Having Trouble? <a href="mailto:support@entasistech.com?subject=Entasis Inquiry">Email Us</a>.
           </p>
 
         </div>
