@@ -17,6 +17,7 @@ The steps to compile and get started with development are covered in detail in d
 ### Issues ###
 - If you run into issues with the NPM version, Install NVM a NPM version manager:
 https://github.com/nvm-sh/nvm
+- Must use gulp-terser instead of gulp-uglify b/c src uses ES6. 
 
 ### Design Files ###
 
