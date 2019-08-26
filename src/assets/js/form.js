@@ -1,12 +1,12 @@
-const submitform = (formElement) => {
+const submitForm = (formID) => {
     //Selecting Form
-    const myForm = document.getElementById(formElement);
+    const myForm = document.getElementById(formID);
 
     //Event Listener
     myForm.addEventListener('submit', (e) => {
     
     //Stop the form from submitting since we’re handling that with AJAX.
-    e.preventDefault()
+    e.preventDefault();
     
     //Inits
     const formData = new FormData(myForm);

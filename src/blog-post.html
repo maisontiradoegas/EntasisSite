@@ -4,6 +4,10 @@
     @@include("partials/head.html", {
       "pageTitle": "Landkit"
     })
+
+
+  <script src="@@webRoot/assets/js/form.js"></script>
+
   </head>
   <body>
 
@@ -436,26 +440,29 @@
                     </p>
 
                     <!-- Form -->
-                    <form>
+                    <form id="costJumpstart" name="src" value="generic">
                       <div class="form-label-group">
-                        <input type="text" class="form-control form-control-flush" id="cardName" placeholder="Name">
+                        <input type="text" class="form-control form-control-flush" name="name" id="costCardName" placeholder="Name" required>
                         <label for="cardName">Name</label>
                       </div>
                       <div class="form-label-group">
-                        <input type="email" class="form-control form-control-flush" id="cardEmail" placeholder="Email">
+                        <input type="email" class="form-control form-control-flush" name="Email" id="costCardEmail" placeholder="Email" required>
                         <label for="cardEmail">Email</label>
                       </div>
                       <div class="form-label-group">
-                        <input type="text" class="form-control form-control-flush" id="cardEmail" placeholder="Company">
+                        <input type="text" class="form-control form-control-flush" name="Company" id="costCardCompany" placeholder="Company">
                         <label for="cardEmail">Company</label>
                       </div>
+                      <div class="form-label-group">
+                        <input type="hidden" class="form-control form-control-flush" name="source" value="CostControlForm" placeholder="source">
+                        <!-- <label for="cardPassword">source</label> -->
+                      </div>
                       <div class="mt-6">
-                        <button class="btn btn-block btn-success lift" type="submit">
-                          Reserve Now
+                        <button class="btn btn-block btn-success lift" onclick="submitForm('costJumpstart')" type="submit">
+                          Reserve
                         </button>
                       </div>
                     </form>
-
                   </div>
                 </div>
 
@@ -466,6 +473,47 @@
         </div> <!-- / .row -->
       </div> <!-- / .container -->
     </section>
+
+
+    <script>
+
+      const submitForm = (formID) => {
+      //Selecting Form
+      const myForm = document.getElementById(formID);
+
+      //Event Listener
+      myForm.addEventListener('submit', (e) => {
+      
+      //Stop the form from submitting since we’re handling that with AJAX.
+      e.preventDefault();
+      
+      //Inits
+      const formData = new FormData(myForm);
+      let jsonObject = {};
+
+      //FormData to JSON Conversion
+      for (const [key, value] of formData.entries()) {
+          jsonObject[key] = value;
+      }
+
+      //Send Request
+      fetch('https://signup.entasistech.com/api/form', {
+        method: 'post',
+        body: JSON.stringify(jsonObject),
+        mode: 'no-cors'
+      }).then((res) => {
+          $("#alert_success").show()
+      }).catch((error)=> {
+          $("#alert_failure").show()
+          console.log('The Error is: ', error);
+      })
+    })
+  }
+        
+      
+      </script>
+
+
 
     <!-- SECTION
     ================================================== -->
@@ -849,6 +897,8 @@
     </section>
 
 
+    <button id="scrollToTopButton" onclick="scrollToTop(300,3)" class="fe fe-arrow-up btn">
+    </button>
 
     
 

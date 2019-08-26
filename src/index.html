@@ -2,8 +2,12 @@
 <html lang="en">
   <head>
     @@include("partials/head.html", {
-      "pageTitle": "Landkit"
+      "pageTitle": "Entasis: Advanced AWS Consulting Partner Dallas, Texas"
     })
+
+    <script src="@@webRoot/assets/js/form.js"></script>
+
+
   </head>
   <body>
 
@@ -456,7 +460,7 @@
                       stroke-dasharray: 2000;
                       stroke-dashoffset: 2000;
                       -webkit-animation: data-curve 1.2s 2s linear forwards;
-                              animation: data-curve 1.2s 2s linear forwards
+                              animation: data-curve 1.2s 2s linear forwards;
                       stroke-linecap: round;
                       stroke-linejoin: round;
                       stroke-width: 3;
@@ -1148,7 +1152,7 @@
     <!-- <section class="pt-8 pt-md-11 pb-10 bg-dark"> -->
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-12 col-md-5 col-lg-6 order-md-2 border-right-md border-gray-300">
+            <div class="text-center text-md-left col-12 col-md-5 col-lg-6 order-md-2 border-right-md border-gray-300">
               <span class="text-uppercase font-weight-bold badge badge-pill badge-warning-soft mb-3">
                 <span class="h6 text-uppercase">Who WE ARE</span>
               </span>  
@@ -1414,7 +1418,7 @@
   
                 <!-- Badge -->
                 <span class="badge badge-pill badge-success badge-float badge-float-outside">
-                  <span class="h6 text-uppercase">Featured</span>
+                  <span class="h6 text-uppercase">SES, EC2 ASG</span>
                 </span>
   
                 <!-- Image -->
@@ -1542,7 +1546,7 @@
   
                 <!-- Badge -->
                 <span class="badge badge-pill badge-warning badge-float badge-float-outside">
-                    <span class="h6 text-uppercase">Featured</span>
+                    <span class="h6 text-uppercase">EC2</span>
                 </span>
 
                 <!-- Body -->
@@ -1595,7 +1599,7 @@
   
                 <!-- Badge -->
                 <span class="badge badge-pill badge-danger badge-float badge-float-outside">
-                    <span class="h6 text-uppercase">Featured</span>
+                    <span class="h6 text-uppercase">CloudFront, S3</span>
                 </span>
                 <!-- Image -->
                 <!-- <a class="card-img-top" href="#!">
@@ -1660,7 +1664,7 @@
               <div class="card card shadow-light-lg lift lift-lg mb-6">
   
               <span class="badge badge-pill badge-info badge-float badge-float-outside">
-                <span class="h6 text-uppercase">Featured</span>
+                <span class="h6 text-uppercase">AURORA, DMS, S3</span>
               </span>
 
                 <!-- Body -->
@@ -1889,7 +1893,7 @@
                 </div>
                 <div class="col-6" data-aos="fade-up" data-aos-delay="100">
                   
-                  <img src="assets/img/images/team/Paul.jpg" alt="..." class="img-fluid mb-4 rounded">
+                  <img src="assets/img/images/team/paul_hack.jpg" alt="..." class="img-fluid mb-4 rounded">
   
                   <img src="assets/img/images/team/paul_desk.jpg" alt="..." class="img-fluid rounded">
   
@@ -2065,6 +2069,10 @@
       
                     <!-- Body -->
                     <div class="card-body">
+
+                     
+
+
                       
                       <!-- Form -->
                       <form id="customerForm" name="src" value="generic">
@@ -2098,14 +2106,14 @@
                         </div>
                         <select name="business_need" id="applyRoles" class="custom-select form-control-flush text-muted">
                             <option selected>Business Need</option>  
-                            <option>Design</option>
-                            <option>Engineering</option>
-                            <option>Product</option>
-                            <option>Testing</option>
+                            <option>Cloud Migration</option>
+                            <option>Cost Optimization</option>
+                            <option>Containerization</option>
+                            <option>DevOps</option>
                             <option>Support</option>
                           </select>
                         <div class="mt-6">
-                          <button class="btn btn-block btn-success lift" onclick="submitform('customerForm')" type="submit">
+                          <button class="btn btn-block btn-success lift" onclick="submitForm('customerForm')" type="submit">
                             Submit
                           </button>
                         </div>
@@ -2116,12 +2124,52 @@
               </div> <!-- / .row -->
             </div>
 
+            <script> 
+                const submitForm = (formID) => {
+                //Selecting Form
+                const myForm = document.getElementById(formID);
+        
+                //Event Listener
+                myForm.addEventListener('submit', (e) => {
+                
+                //Stop the form from submitting since we’re handling that with AJAX.
+                e.preventDefault();
+                
+                //Inits
+                const formData = new FormData(myForm);
+                let jsonObject = {};
+        
+                //FormData to JSON Conversion
+                for (const [key, value] of formData.entries()) {
+                    jsonObject[key] = value;
+                }
+        
+                //Send Request
+                fetch('https://signup.entasistech.com/api/form', {
+                  method: 'post',
+                  body: JSON.stringify(jsonObject),
+                  mode: 'no-cors'
+                }).then((res) => {
+                    $("#alert_success").show()
+                }).catch((error)=> {
+                    $("#alert_failure").show()
+                    console.log('The Error is: ', error);
+                })
+              })
+            }
+                  
+                  
+                </script>
+
             
           <button id="scrollToTopButton" onclick="scrollToTop(300,3)" class="fe fe-arrow-up btn">
           </button>
 
-          
-          
+
+
+
+
+        
 
 
     <!-- SHAPE
@@ -2158,6 +2206,13 @@
     <!-- JAVASCRIPT
     ================================================== -->
     @@include("partials/scripts.html")
+
+
+
+   
+
+
+
   
   </body>
 </html>

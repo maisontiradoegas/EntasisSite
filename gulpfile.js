@@ -172,8 +172,8 @@ gulp.task('html', function() {
       basepath: '@file',
       indent: true
     }))
-    .pipe(replace(/href="(.{0,10})node_modules/g, 'href="$1assets/libs"'))
-    .pipe(replace(/src="(.{0,10})node_modules/g, 'src="$1assets/libs"'))
+    .pipe(replace(/href="(.{0,10})node_modules/g, 'href="$1assets/libs'))
+    .pipe(replace(/src="(.{0,10})node_modules/g, 'src="$1assets/libs'))
     .pipe(useref())
     .pipe(cached())
     .pipe(gulpif('*.js', terser()))
